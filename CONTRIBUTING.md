@@ -15,12 +15,13 @@
 - `type` 建议：`feat`、`fix`、`docs`、`style`、`refactor`、`perf`、`test`、`chore`、`build`、`ci`、`revert`。
 - **破坏性变更**：在 `type` 后加 `!`，或在页脚加入 `BREAKING CHANGE: ...`。
 - `scope` 可选（推荐用模块名/功能点）。
+- `subject` 使用简洁中文动词短语，避免空泛描述。
 
 示例：
 ```
-feat(sidebar): add capsule hover preview
-fix(copy): handle binary file error
-refactor(editor)!: change node schema
+feat(sidebar): 支持文件夹展开
+fix(copy): 处理二进制文件读取错误
+refactor(editor)!: 调整节点结构
 ```
 
 ## 版本管理（semantic-release）
