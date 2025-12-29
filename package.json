@@ -1,0 +1,68 @@
+{
+  "name": "prompt-composer",
+  "displayName": "Prompt Composer",
+  "description": "VS Code 侧边栏富文本提示词编辑器",
+  "version": "0.0.1",
+  "publisher": "asdlem",
+  "packageManager": "pnpm@10.26.2",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/asdlem/prompt-composer"
+  },
+  "engines": {
+    "vscode": "^1.87.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onView:promptComposer.sidebar"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "promptComposer",
+          "title": "Prompt Composer",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "promptComposer": [
+        {
+          "id": "promptComposer.sidebar",
+          "name": "Prompt Composer"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "commitlint": "commitlint --edit",
+    "release": "semantic-release",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": "eslint --fix"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^20.2.0",
+    "@commitlint/config-conventional": "^20.2.0",
+    "@eslint/js": "^9.39.2",
+    "@types/node": "^20.11.30",
+    "@types/vscode": "^1.87.0",
+    "eslint": "^9.39.2",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "semantic-release": "25.0.2",
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^8.50.1"
+  }
+}

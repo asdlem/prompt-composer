@@ -54,7 +54,7 @@
 ### 4.1 前端 (Webview Context)
 *   **职责**：负责 UI 渲染、交互、拖拽事件捕获。
 *   **技术栈**：
-    *   **React 18**：视图层。
+    *   **React 19（注意使用最新版本）**：视图层。
     *   **Tiptap (ProseMirror)**：编辑器核心。
     *   **@vscode/webview-ui-toolkit**：UI 组件库（按钮、滚动条等）。
 *   **关键数据结构 (Editor JSON)**：

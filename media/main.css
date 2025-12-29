@@ -1,0 +1,67 @@
+:root {
+  color-scheme: light;
+  --pc-bg: #f6f5f1;
+  --pc-panel: #ffffff;
+  --pc-text: #202124;
+  --pc-muted: #6b6f76;
+  --pc-accent: #0f766e;
+  --pc-accent-strong: #0a5c56;
+  --pc-border: #e2e0da;
+  --pc-shadow: 0 10px 30px rgba(15, 118, 110, 0.12);
+  font-family: "IBM Plex Sans", "Noto Sans", "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 16px;
+  background: linear-gradient(135deg, #f9f7f2 0%, #edf2f1 100%);
+  color: var(--pc-text);
+}
+
+.pc-header {
+  background: var(--pc-panel);
+  border: 1px solid var(--pc-border);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: var(--pc-shadow);
+}
+
+.pc-title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.pc-subtitle {
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--pc-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pc-body {
+  margin-top: 16px;
+  padding: 16px;
+  background: var(--pc-panel);
+  border: 1px solid var(--pc-border);
+  border-radius: 16px;
+  box-shadow: var(--pc-shadow);
+  display: grid;
+  gap: 12px;
+}
+
+.pc-button {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 16px;
+  background: var(--pc-accent);
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.pc-button:hover {
+  background: var(--pc-accent-strong);
+  transform: translateY(-1px);
+}
