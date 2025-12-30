@@ -1,5 +1,6 @@
 import * as vscode from "vscode";
-import { SidebarProvider } from "./sidebar/SidebarProvider";
+import { registerAddFilesCommand } from "./commands/addFilesCommand";
+import { SidebarProvider } from "./providers/SidebarProvider";
 
 export function activate(context: vscode.ExtensionContext) {
   const provider = new SidebarProvider(context.extensionUri);
@@ -8,7 +9,9 @@ export function activate(context: vscode.ExtensionContext) {
     provider
   );
 
-  context.subscriptions.push(disposable);
+  const addFilesCommand = registerAddFilesCommand(provider);
+
+  context.subscriptions.push(disposable, addFilesCommand);
 }
 
 export function deactivate() {
