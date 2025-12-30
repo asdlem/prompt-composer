@@ -1,0 +1,278 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light dark;
+  --pc-bg: var(--vscode-sideBar-background, #1f1f1f);
+  --pc-panel: var(--vscode-editorWidget-background, var(--vscode-editor-background, #1e1e1e));
+  --pc-border: var(--vscode-input-border, rgba(255, 255, 255, 0.08));
+  --pc-text: var(--vscode-editor-foreground, #1f2328);
+  --pc-muted: var(--vscode-descriptionForeground, #6b6f76);
+  --pc-accent: var(--vscode-button-background, #0f766e);
+  --pc-accent-strong: var(--vscode-button-hoverBackground, #0a5c56);
+  --pc-danger: var(--vscode-inputValidation-errorBorder, #b42318);
+  --pc-shadow-color: transparent;
+  font-family: var(--vscode-font-family, "Segoe UI", sans-serif);
+  --radius: 10px;
+}
+
+body {
+  margin: 0;
+  padding: 12px;
+  background: var(--pc-bg);
+  color: var(--pc-text);
+}
+
+.pc-root {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: transparent;
+  border-bottom: 1px solid var(--pc-border);
+  padding: 2px 4px 8px;
+}
+
+.pc-header-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pc-title {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.pc-subtitle {
+  margin-top: 2px;
+  font-size: 11px;
+  color: var(--pc-muted);
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+}
+
+.pc-header-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pc-lang-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--pc-muted);
+}
+
+.pc-lang-icon {
+  font-size: 13px;
+  line-height: 1;
+}
+
+.pc-lang-label {
+  letter-spacing: 0;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.pc-lang-select {
+  min-width: 96px;
+  height: 30px;
+}
+
+.pc-editor-shell {
+  background: var(--pc-panel);
+  border: 1px solid var(--pc-border);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.pc-editor-toolbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: center;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--pc-border);
+  margin-bottom: 10px;
+}
+
+.pc-toolbar-left,
+.pc-toolbar-right {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.pc-editor {
+  position: relative;
+  min-height: 240px;
+  max-height: 360px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid var(--vscode-input-border, rgba(0, 0, 0, 0.22));
+  background: var(--vscode-input-background, rgba(0, 0, 0, 0.2));
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-gutter: stable;
+}
+
+.pc-editor[role="button"] {
+  cursor: pointer;
+}
+
+.pc-editor .ProseMirror {
+  outline: none;
+  min-height: 200px;
+  line-height: 1.65;
+}
+
+.pc-editor .ProseMirror p {
+  margin: 0 0 10px;
+}
+
+.pc-empty-guide {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-align: center;
+  padding: 24px;
+  color: var(--pc-muted);
+}
+
+.pc-empty-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--pc-text);
+}
+
+.pc-empty-subtitle {
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--pc-muted);
+}
+
+.pc-empty-hint {
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--pc-muted);
+  max-width: 260px;
+}
+
+.pc-loading {
+  color: var(--pc-muted);
+  font-size: 13px;
+}
+
+.pc-actions-bottom {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pc-shortcut-hint {
+  margin-top: 8px;
+  font-size: 10px;
+  color: var(--pc-muted);
+  text-align: center;
+}
+
+.pc-capsule {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  margin: 2px 6px 6px 0;
+  border-radius: 10px;
+  border: 1px solid var(--vscode-input-border, rgba(0, 0, 0, 0.25));
+  background: color-mix(in srgb, var(--pc-panel) 70%, transparent);
+  font-size: 12px;
+  line-height: 1.4;
+  vertical-align: middle;
+  color: var(--vscode-badge-foreground, var(--pc-text));
+  position: relative;
+  cursor: pointer;
+}
+
+.pc-capsule-label {
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+.pc-capsule-remove {
+  border: none;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.pc-capsule-remove:hover {
+  color: var(--pc-danger);
+}
+
+.ProseMirror-selectednode .pc-capsule {
+  box-shadow: 0 0 0 1px var(--vscode-focusBorder, rgba(0, 120, 212, 0.6));
+}
+
+.pc-toast {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 12px;
+  box-shadow: 0 6px 18px var(--pc-shadow-color);
+  white-space: pre-line;
+  max-width: 280px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.pc-toast-success {
+  background: color-mix(in srgb, var(--pc-accent) 14%, transparent);
+  color: var(--pc-text);
+  border: 1px solid color-mix(in srgb, var(--pc-accent) 32%, transparent);
+}
+
+.pc-toast-error {
+  background: color-mix(in srgb, var(--pc-danger) 16%, transparent);
+  color: var(--pc-text);
+  border: 1px solid color-mix(in srgb, var(--pc-danger) 32%, transparent);
+}
+
+@media (max-width: 720px) {
+  body {
+    padding: 14px;
+  }
+
+  .pc-header {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .pc-lang-control {
+    margin-left: auto;
+  }
+
+  .pc-header-actions {
+    margin-left: auto;
+  }
+}

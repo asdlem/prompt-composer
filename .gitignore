@@ -1,6 +1,11 @@
 node_modules/
 out/
 dist/
+media/webview/
+webview/src/*.js
+webview/src/*.js.map
+webview/src/editor/*.js
+webview/src/editor/*.js.map
 *.vsix
 *.log
 .DS_Store
