@@ -75,6 +75,7 @@
     "lint:fix": "eslint . --fix",
     "commitlint": "commitlint --edit",
     "release": "semantic-release",
+    "release:dry": "semantic-release --dry-run --no-ci",
     "prepare": "husky",
     "webview:dev": "vite --config webview/vite.config.ts",
     "webview:build": "vite build --config webview/vite.config.ts",

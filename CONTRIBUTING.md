@@ -29,6 +29,8 @@ refactor(editor)!: 调整节点结构
 - 版本与发布由 semantic-release 自动完成：根据提交信息判断语义版本并生成 Release Notes。
 - 默认采用 Angular 提交规范（可在配置中通过 preset 修改）。
 - semantic-release 需要在 CI 环境中运行，请不要手动修改版本号，通过合规的提交类型驱动版本变更。
+- Release 由 GitHub Actions 执行（main 分支推送触发），使用 `GITHUB_TOKEN` 进行发布。
+- 本地仅建议预演：`pnpm run release:dry`。
 
 ## 提交钩子（Husky + commitlint + lint-staged）
 
