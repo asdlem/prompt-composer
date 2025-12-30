@@ -1,0 +1,14 @@
+.vscode/**
+.vscode-test/**
+out/test/**
+node_modules/**
+src/**
+webview/src/**
+webview/index.html
+webview/vite.config.ts
+webview/tsconfig.json
+webview/tsconfig.*.json
+**/*.map
+**/*.log
+pnpm-lock.yaml
+tsconfig.json

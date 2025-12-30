@@ -1,0 +1,8 @@
+{
+  "extension.displayName": "Prompt Composer",
+  "extension.description": "VS Code 侧边栏富文本提示词编辑器",
+  "command.addFiles.title": "添加到 Prompt Composer",
+  "command.addFiles.category": "Prompt Composer",
+  "viewContainer.promptComposer.title": "Prompt Composer",
+  "view.promptComposer.name": "Prompt Composer"
+}

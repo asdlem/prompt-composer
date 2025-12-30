@@ -1,7 +1,7 @@
 {
   "name": "prompt-composer",
-  "displayName": "Prompt Composer",
-  "description": "VS Code 侧边栏富文本提示词编辑器",
+  "displayName": "%extension.displayName%",
+  "description": "%extension.description%",
   "version": "0.0.1",
   "publisher": "asdlem",
   "packageManager": "pnpm@10.26.2",
@@ -13,41 +13,73 @@
   "engines": {
     "vscode": "^1.87.0"
   },
+  "activationEvents": [
+    "onView:promptComposer.sidebar",
+    "onCommand:promptComposer.addFiles"
+  ],
   "categories": [
     "Other"
   ],
-  "activationEvents": [
-    "onView:promptComposer.sidebar"
-  ],
+  "icon": "media/prompt-composer-icon.png",
   "main": "./out/extension.js",
   "contributes": {
     "viewsContainers": {
       "activitybar": [
         {
           "id": "promptComposer",
-          "title": "Prompt Composer",
-          "icon": "media/icon.svg"
+          "title": "%viewContainer.promptComposer.title%",
+          "icon": "media/prompt-composer-activity-bar.svg"
         }
       ]
     },
+    "commands": [
+        {
+          "command": "promptComposer.addFiles",
+          "title": "%command.addFiles.title%",
+          "category": "%command.addFiles.category%"
+        }
+      ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "promptComposer.addFiles",
+          "group": "navigation@10",
+          "when": "resourceScheme == file"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "promptComposer.addFiles",
+        "key": "ctrl+alt+c",
+        "mac": "cmd+alt+c",
+        "when": "explorerViewletVisible && explorerViewletFocus && resourceScheme == file"
+      }
+    ],
     "views": {
       "promptComposer": [
         {
           "id": "promptComposer.sidebar",
-          "name": "Prompt Composer"
+          "name": "%view.promptComposer.name%",
+          "icon": "media/prompt-composer-activity-bar.svg",
+          "type": "webview"
         }
       ]
     }
   },
   "scripts": {
-    "vscode:prepublish": "pnpm run compile",
+    "vscode:prepublish": "pnpm run webview:build && pnpm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "commitlint": "commitlint --edit",
     "release": "semantic-release",
-    "prepare": "husky"
+    "prepare": "husky",
+    "webview:dev": "vite --config webview/vite.config.ts",
+    "webview:build": "vite build --config webview/vite.config.ts",
+    "vsix:package": "node -e \"require('fs').mkdirSync('dist',{recursive:true})\" && pnpm dlx @vscode/vsce package -o dist/prompt-composer.vsix",
+    "build": "pnpm run webview:build && pnpm run compile"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "eslint --fix"
@@ -56,13 +88,36 @@
     "@commitlint/cli": "^20.2.0",
     "@commitlint/config-conventional": "^20.2.0",
     "@eslint/js": "^9.39.2",
+    "@radix-ui/react-icons": "^1.3.2",
+    "@radix-ui/react-popover": "^1.1.15",
+    "@radix-ui/react-select": "^2.2.6",
+    "@radix-ui/react-slot": "^1.2.3",
+    "@tiptap/core": "^3.14.0",
+    "@tiptap/react": "^3.14.0",
+    "@tiptap/starter-kit": "^3.14.0",
     "@types/node": "^20.11.30",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
     "@types/vscode": "^1.87.0",
+    "@vitejs/plugin-react": "^5.1.2",
+    "@vscode/vsce": "^3.2.1",
+    "autoprefixer": "^10.4.21",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "eslint": "^9.39.2",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
+    "postcss": "^8.5.6",
+    "prosemirror-view": "^1.41.4",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
     "semantic-release": "25.0.2",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss": "^3.4.15",
     "typescript": "^5.4.5",
-    "typescript-eslint": "^8.50.1"
+    "typescript-eslint": "^8.50.1",
+    "vite": "^7.3.0"
   }
 }

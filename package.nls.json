@@ -1,0 +1,8 @@
+{
+  "extension.displayName": "Prompt Composer",
+  "extension.description": "Rich text prompt editor in the VS Code sidebar",
+  "command.addFiles.title": "Add to Prompt Composer",
+  "command.addFiles.category": "Prompt Composer",
+  "viewContainer.promptComposer.title": "Prompt Composer",
+  "view.promptComposer.name": "Prompt Composer"
+}
