@@ -205,7 +205,7 @@ body {
   font-size: 12px;
   line-height: 1.4;
   vertical-align: middle;
-  color: var(--vscode-badge-foreground, var(--pc-text));
+  color: var(--pc-text);
   position: relative;
   cursor: pointer;
 }
